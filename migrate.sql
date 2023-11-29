@@ -1,0 +1,11 @@
+create table "users" ("id" bigserial not null primary key, "name" varchar(255) not null, "email" varchar(255) not null, "email_verified_at" timestamp(0) without time zone null, "password" varchar(255) not null, "remember_token" varchar(100) null, "created_at" timestamp(0) without time zone null, "updated_at" timestamp(0) without time zone null);
+alter table "users" add constraint "users_email_unique" unique ("email")  
+create table "password_reset_tokens" ("email" varchar(255) not null, "token" varchar(255) not null, "created_at" timestamp(0) without time zone null)  
+alter table "password_reset_tokens" add primary key ("email")  
+create table "failed_jobs" ("id" bigserial not null primary key, "uuid" varchar(255) not null, "connection" text not null, "queue" text not null, "payload" text not null, "exception" text not null, "failed_at" timestamp(0) without time zone not null default CURRENT_TIMESTAMP)  
+alter table "failed_jobs" add constraint "failed_jobs_uuid_unique" unique ("uuid")  
+create table "personal_access_tokens" ("id" bigserial not null primary key, "tokenable_type" varchar(255) not null, "tokenable_id" bigint not null, "name" varchar(255) not null, "token" varchar(64) not null, "abilities" text null, "last_used_at" timestamp(0) without time zone null, "expires_at" timestamp(0) without time zone null, "created_at" timestamp(0) without time zone null, "updated_at" timestamp(0) without time zone null)  
+create index "personal_access_tokens_tokenable_type_tokenable_id_index" on "personal_access_tokens" ("tokenable_type", "tokenable_id")  
+alter table "personal_access_tokens" add constraint "personal_access_tokens_token_unique" unique ("token")  
+create table "appointments" ("id" bigserial not null primary key, "first_name" varchar(255) not null, "last_name" varchar(255) not null, "phone" varchar(255) not null, "email" varchar(255) not null, "postal_code" varchar(255) not null, "street_name" varchar(255) not null, "city" varchar(255) not null, "house_number" varchar(255) not null, "datetime" timestamp(0) without time zone not null, "number_hours" integer not null, "is_paid" boolean not null, "status" varchar(255) not null, "created_at" timestamp(0) without time zone null, "updated_at" timestamp(0) without time zone null)  
+
