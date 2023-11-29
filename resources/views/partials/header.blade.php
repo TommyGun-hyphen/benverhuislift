@@ -2,9 +2,9 @@
 {{-- 
  --}}
 
-<header class="fixed w-full px-6 bg-white border-gray-200" style="z-index: 10;">
+<header class="fixed w-full bg-white border-gray-200 top-0" style="z-index: 10;">
     <nav class="py-6">
-        <div class="flex flex-wrap items-center justify-between w-full lg:w-4/5 max-w-screen-xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
             <a href="#" class="flex items-center">
                 {{-- <img src="./images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo" /> --}}
                 <span class="self-center text-3xl font-semibold whitespace-nowrap ">BenverHuislift</span>
@@ -48,6 +48,16 @@
                         <a href="{{route('gallery')}}"
                             class="block py-2 pl-3 pr-4 {{request()->route()->getName() == 'gallery' ? 'bg-primary-500 text-white lg:text-primary-500' : 'text-slate-700'}} rounded lg:bg-transparent lg:p-0 text-lg font-bold"
                             aria-current="page">GALLERY</a>
+                    </li>
+                    <li>
+                        <a href="{{route('faq')}}"
+                            class="block py-2 pl-3 pr-4 {{request()->route()->getName() == 'faq' ? 'bg-primary-500 text-white lg:text-primary-500' : 'text-slate-700'}} rounded lg:bg-transparent lg:p-0 text-lg font-bold"
+                            aria-current="page">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="{{route('appointment.create')}}"
+                            class="block py-2 pl-3 pr-4 {{request()->route()->getName() == 'appointment.create' ? 'bg-primary-500 text-white lg:text-primary-500' : 'text-slate-700'}} rounded lg:bg-transparent lg:p-0 text-lg font-bold"
+                            aria-current="page">APPOINTMENT</a>
                     </li>
                     
                 </ul>
